@@ -1,6 +1,9 @@
 # Experiment-3-Correlation-and-Regression-for-Data-Analysis
+NAME : GOKULAKRISHNA S 
+REG  NO : 25018150
+SLOT NO: 3P1 -1 
 
-# Aim: 
+#Aim: 
 	To analyse given data using co-efficient of correlation and regression line 
   
   <img width="1180" height="120" alt="image" src="https://github.com/user-attachments/assets/62ba8618-34f6-4718-9233-b36f6ca975ff" />
@@ -23,13 +26,77 @@
 <img width="1143" height="477" alt="image" src="https://github.com/user-attachments/assets/d3d41b8d-bee6-4b5f-a6fe-ef6997126cf2" />
 
 # Program
+import numpy as np
+import math
+import matplotlib.pyplot as plt
 
+# Input x and y values (space separated)
+x = [int(i) for i in input("Enter x values (space separated): ").split()]
+y = [int(i) for i in input("Enter y values (space separated): ").split()]
 
+# Check equal length
+if len(x) != len(y):
+    raise SystemExit("Error: x and y must have the same number of values.")
+
+N = len(x)
+
+# Initialize sums
+Sx = 0
+Sy = 0
+Sxy = 0
+Sx2 = 0
+Sy2 = 0
+
+# Compute sums
+for i in range(N):
+    Sx += x[i]
+    Sy += y[i]
+    Sxy += x[i] * y[i]
+    Sx2 += x[i]**2
+    Sy2 += y[i]**2
+
+# Correlation coefficient r
+den = math.sqrt((N * Sx2 - Sx**2) * (N * Sy2 - Sy**2))
+if den == 0:
+    raise SystemExit("Error: Denominator is zero when computing correlation.")
+
+r = (N * Sxy - Sx * Sy) / den
+print("The Correlation coefficient is %0.3f" % r)
+
+# Regression coefficient (slope) of Y on X
+byx = (N * Sxy - Sx * Sy) / (N * Sx2 - Sx**2)
+
+# Means
+xmean = Sx / N
+ymean = Sy / N
+
+print("The Regression line Y on X is ::: y = %0.3f + %0.3f (x - %0.3f)" % (ymean, byx, xmean))
+
+# Scatter plot
+plt.scatter(x, y)
+
+# Regression function
+def Reg(xv):
+    return ymean + byx * (xv - xmean)
+
+# Plot regression line
+x_plot = np.linspace(min(x), max(x), 51)
+y_plot = Reg(x_plot)
+
+plt.plot(x_plot, y_plot, 'r')
+plt.xlabel('x-data')
+plt.ylabel('y-data')
+plt.legend(['Regression Line', 'Data points'])
+plt.grid(True)
+plt.show()
+
+https://colab.research.google.com/drive/1ZR3zKFK63DgMqrhINh2acs90xb-K9jFO?usp=sharing
 
 # Output
+![Screenshot_17-11-2025_142843_colab research google com](https://github.com/user-attachments/assets/7ec3c490-4528-42c0-9e12-9dac80262b7b)
 
 
-# Result
+#Result
   The correlation and regression for data analysis of objects from feeder using probability distribution are calculated.
 
 
