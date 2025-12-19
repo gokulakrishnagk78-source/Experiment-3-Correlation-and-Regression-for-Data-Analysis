@@ -1,7 +1,4 @@
 # Experiment-3-Correlation-and-Regression-for-Data-Analysis
-NAME : GOKULAKRISHNA S 
-REG  NO : 25018150
-SLOT NO: 3P1 -1 
 
 #Aim: 
 	To analyse given data using co-efficient of correlation and regression line 
@@ -26,21 +23,24 @@ SLOT NO: 3P1 -1
 <img width="1143" height="477" alt="image" src="https://github.com/user-attachments/assets/d3d41b8d-bee6-4b5f-a6fe-ef6997126cf2" />
 
 # Program
+NAME : GOKULAKRISHNA S 
+REG NO: 25018150
+SLOT NO:3P1-1
+
 import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-# Input x and y values (space separated)
 x = [int(i) for i in input("Enter x values (space separated): ").split()]
 y = [int(i) for i in input("Enter y values (space separated): ").split()]
 
-# Check equal length
+
 if len(x) != len(y):
     raise SystemExit("Error: x and y must have the same number of values.")
 
 N = len(x)
 
-# Initialize sums
+
 Sx = 0
 Sy = 0
 Sxy = 0
