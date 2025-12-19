@@ -23,6 +23,7 @@
 <img width="1143" height="477" alt="image" src="https://github.com/user-attachments/assets/d3d41b8d-bee6-4b5f-a6fe-ef6997126cf2" />
 
 # Program
+```
 NAME : GOKULAKRISHNA S 
 REG NO: 25018150
 SLOT NO:3P1-1
@@ -47,7 +48,6 @@ Sxy = 0
 Sx2 = 0
 Sy2 = 0
 
-# Compute sums
 for i in range(N):
     Sx += x[i]
     Sy += y[i]
@@ -55,7 +55,6 @@ for i in range(N):
     Sx2 += x[i]**2
     Sy2 += y[i]**2
 
-# Correlation coefficient r
 den = math.sqrt((N * Sx2 - Sx**2) * (N * Sy2 - Sy**2))
 if den == 0:
     raise SystemExit("Error: Denominator is zero when computing correlation.")
@@ -63,23 +62,23 @@ if den == 0:
 r = (N * Sxy - Sx * Sy) / den
 print("The Correlation coefficient is %0.3f" % r)
 
-# Regression coefficient (slope) of Y on X
+
 byx = (N * Sxy - Sx * Sy) / (N * Sx2 - Sx**2)
 
-# Means
+
 xmean = Sx / N
 ymean = Sy / N
 
 print("The Regression line Y on X is ::: y = %0.3f + %0.3f (x - %0.3f)" % (ymean, byx, xmean))
 
-# Scatter plot
+
 plt.scatter(x, y)
 
-# Regression function
+
 def Reg(xv):
     return ymean + byx * (xv - xmean)
 
-# Plot regression line
+
 x_plot = np.linspace(min(x), max(x), 51)
 y_plot = Reg(x_plot)
 
@@ -89,7 +88,7 @@ plt.ylabel('y-data')
 plt.legend(['Regression Line', 'Data points'])
 plt.grid(True)
 plt.show()
-
+```
 https://colab.research.google.com/drive/1ZR3zKFK63DgMqrhINh2acs90xb-K9jFO?usp=sharing
 
 # Output
